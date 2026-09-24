@@ -243,6 +243,11 @@
           <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Enter your password" required>
 
           <div class="remember">
+            <input type="checkbox" id="show-password">
+            <label for="show-password">Show password</label>
+          </div>
+
+          <div class="remember">
             <input type="checkbox" id="remember" name="remember">
             <label for="remember">Remember me</label>
           </div>
@@ -258,6 +263,10 @@
   </div>
 
   <script>
+    document.getElementById('show-password').addEventListener('change', function () {
+      document.getElementById('password').type = this.checked ? 'text' : 'password';
+    });
+
     // Demo only: credentials are never sent or stored; real auth needs a server endpoint over HTTPS.
     document.getElementById('login-form').addEventListener('submit', function (event) {
       event.preventDefault();
